@@ -25,6 +25,11 @@ export class ProgramsRepositoryMongoAdapter extends ProgramsRepository {
 		return this.mapper.docToEntity(doc)
 	}
 
+	async findProduct(productId: string): Promise<ProgramEntity> {
+		const doc = await this.model.findOne({ productId })
+		return this.mapper.docToEntity(doc)
+	}
+
 	async create(entry: ProgramEntity): Promise<ProgramEntity> {
         const entity = this.mapper.entityToDoc(entry)
         entity.id = new Types.ObjectId().toString()

@@ -8,7 +8,7 @@ import { ProgramsFactory } from 'src/opencashback/programs.factory';
 
 import { programStub } from 'test/stubs/program.stub';
 
-describe('Open CashBack Controller (e2e)', () => {
+describe('OpenCashBack Controller (e2e)', () => {
 	let app: INestApplication;
 	let repo: ProgramsRepository;
 	let factory: ProgramsFactory;
