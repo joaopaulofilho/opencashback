@@ -5,6 +5,7 @@ import config from 'src/config';
 import { MongooseConfigService } from 'src/opencashback/adapters/mongo/config.service';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { OpencashbackModule } from 'src/opencashback/opencashback.module';
 
 @Module({
 	imports: [
@@ -15,6 +16,7 @@ import { AppService } from './app.service';
     	MongooseModule.forRootAsync({
 			useClass: MongooseConfigService,
 		}),
+		OpencashbackModule,
 	],
 	controllers: [AppController],
 	providers: [AppService],
