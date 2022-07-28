@@ -10,7 +10,6 @@ export class ProgramsMongoMapper {
 	) {}
 
 	docToEntity(doc: ProgramDocument): ProgramEntity {
-		console.log('DO TO ENTITY', doc);
 		return this.factory.build({
 			productId: doc.productId,
 			value: doc.value,

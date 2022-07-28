@@ -12,7 +12,13 @@ export class UpdateProgramCommand {
 	) {}
 
 	async execute(id: string, entry: Partial<ProgramDto>): Promise<ProgramEntity> {
-		const entity = this.factory.build(entry)
+		const found = await this.repo.findOne(id)
+		const entity = this.factory.build({
+			...found,
+			startDate: found.startDate.toISOString(),
+			endDate: found.endDate.toISOString(),
+			...entry,
+		})
 		return await this.repo.update(id, entity)
 	}
 }

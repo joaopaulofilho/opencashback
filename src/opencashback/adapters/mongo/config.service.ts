@@ -9,7 +9,6 @@ export class MongooseConfigService implements MongooseOptionsFactory {
 	) {}
 
 	createMongooseOptions(): MongooseModuleOptions {
-		console.log('CONFIG', this.config.get<string>('database.mongo'));
 		return {
 			uri: this.config.get<string>('database.mongo'),
 		}

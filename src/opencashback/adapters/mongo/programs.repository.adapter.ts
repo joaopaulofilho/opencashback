@@ -20,8 +20,8 @@ export class ProgramsRepositoryMongoAdapter extends ProgramsRepository {
 		return found.map(doc => this.mapper.docToEntity(doc))
 	}
 
-	async findOne(id: string): Promise<ProgramEntity> {
-		const doc = await this.model.findOne({ id })
+	async findOne(_id: string): Promise<ProgramEntity> {
+		const doc = await this.model.findOne({ _id })
 		return this.mapper.docToEntity(doc)
 	}
 
@@ -32,14 +32,14 @@ export class ProgramsRepositoryMongoAdapter extends ProgramsRepository {
         return this.mapper.docToEntity(doc)
 	}
 
-	async update(id: string, entry: Partial<ProgramEntity>): Promise<ProgramEntity> {
-		await this.model.update({ id }, entry)
-    	return this.findOne(id)
+	async update(_id: string, entry: Partial<ProgramEntity>): Promise<ProgramEntity> {
+		await this.model.updateOne({ _id }, entry)
+    	return this.findOne(_id)
 	}
 
-	async remove(id: string): Promise<ProgramEntity> {
-    	const entity = await this.findOne(id)
-		await this.model.remove({ id })
+	async remove(_id: string): Promise<ProgramEntity> {
+    	const entity = await this.findOne(_id)
+		await this.model.deleteOne({ _id })
 		return entity
 	}
 }
