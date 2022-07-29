@@ -4,11 +4,11 @@ services:
     api:
         image: node:14
         volumes:
-            - ./src:/app
+            - ./:/app
         working_dir: /app
         env_file:
             ./.env
-        command: ["npm", "start"]
+        command: ["npm", "run", "start:dev"]
         ports:
             - "3000:3000"
         depends_on:
@@ -17,4 +17,4 @@ services:
     mongo:
         image: mongo:3.6
         ports:
-            - "27017:27017"
+            - "27019:27017"

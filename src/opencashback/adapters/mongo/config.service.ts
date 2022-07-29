@@ -9,8 +9,9 @@ export class MongooseConfigService implements MongooseOptionsFactory {
 	) {}
 
 	createMongooseOptions(): MongooseModuleOptions {
+		const uri = this.config.get<string>('database.mongo')
 		return {
-			uri: this.config.get<string>('database.mongo'),
+			uri,
 		}
 	}
 }
