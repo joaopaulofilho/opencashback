@@ -3,13 +3,11 @@ import { FormatMoney } from 'src/common/format.money';
 import { ProgramDto } from 'src/opencashback/dtos/program.dto';
 import { FindCashbackPriceResponseDto } from 'src/opencashback/dtos/find.cashback.price.response.dto';
 import { ProgramEntity } from 'src/opencashback/program.entity';
-import { ProgramsFactory } from 'src/opencashback/programs.factory';
 import { ProgramsRepository } from 'src/opencashback/programs.repository';
 
 @Injectable()
 export class FindCashbackPriceQuery {
 	constructor(
-		private factory: ProgramsFactory,
 		private repo: ProgramsRepository,
 		private formatMoney: FormatMoney,
 	) {}
